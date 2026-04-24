@@ -5,21 +5,21 @@
 class Gosymdb < Formula
   desc "Go symbol and call-graph database backed by SQLite"
   homepage "https://github.com/walkindude/gosymdb"
-  version "0.1.0"
+  version "0.1.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.0/gosymdb_0.1.0_darwin_amd64.tar.gz"
-      sha256 "b2711156bf4ba1fdc7e89eb84a5004adef7bbf10722d41d45889f3f2abdcdd47"
+      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.1/gosymdb_0.1.1_darwin_amd64.tar.gz"
+      sha256 "19003ea05af1e6377b7190fd0e973a2d472cd27777ea9a893ac4704ea5358d97"
 
       define_method(:install) do
         bin.install "gosymdb"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.0/gosymdb_0.1.0_darwin_arm64.tar.gz"
-      sha256 "4de5a661de1faa55b3090452e01115212eef31c18e45dee4daa83aa2ff3332b5"
+      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.1/gosymdb_0.1.1_darwin_arm64.tar.gz"
+      sha256 "56fabbb9553a01714a41557eefd9aaae53bb853a13df24dd21713bab74920dd8"
 
       define_method(:install) do
         bin.install "gosymdb"
@@ -29,15 +29,15 @@ class Gosymdb < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.0/gosymdb_0.1.0_linux_amd64.tar.gz"
-      sha256 "d8035086678af5239f8d8d7fa71e2d84649b6b9dde5107bb7958fb52b71c47b6"
+      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.1/gosymdb_0.1.1_linux_amd64.tar.gz"
+      sha256 "a3bdf15bc2044ee227ebd620c0da3aca9ff6c83dd0b1d2d009727cbb8a7dd14a"
       define_method(:install) do
         bin.install "gosymdb"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.0/gosymdb_0.1.0_linux_arm64.tar.gz"
-      sha256 "cb92abb8851e514402ff2053191dfc0dcd41d6f7bfb48dddaf233301d237c677"
+      url "https://github.com/walkindude/gosymdb/releases/download/v0.1.1/gosymdb_0.1.1_linux_arm64.tar.gz"
+      sha256 "e430bc92b91694ecc58722ef071acfe53d0025918ac91f27a17f82eac2b04998"
       define_method(:install) do
         bin.install "gosymdb"
       end
