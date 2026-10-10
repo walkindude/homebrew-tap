@@ -5,26 +5,22 @@ cask "gosymdb" do
   on_macos do
     on_intel do
       sha256 "603c1b431b6e57b8d240ac1841aac05ca65abc9310955cc10c9fb4891e1aec92"
-      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_darwin_amd64.tar.gz",
-        verified: "github.com/walkindude/gosymdb"
+      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
       sha256 "ea1911d990d310a3bf027d0480e1ee808334439fcaab4d332244587688d87a05"
-      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_darwin_arm64.tar.gz",
-        verified: "github.com/walkindude/gosymdb"
+      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
       sha256 "6edcc35671328309875d0ab142a65b219926769909aa5e362957b3a0d838f7c7"
-      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_linux_amd64.tar.gz",
-        verified: "github.com/walkindude/gosymdb"
+      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
       sha256 "096664ba549909c70850d236371034fa723be6c89f009a96412a03c9cb023d58"
-      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_linux_arm64.tar.gz",
-        verified: "github.com/walkindude/gosymdb"
+      url "https://github.com/walkindude/gosymdb/releases/download/v#{version}/gosymdb_#{version}_linux_arm64.tar.gz"
     end
   end
 
@@ -38,9 +34,11 @@ cask "gosymdb" do
 
   binary "gosymdb"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/gosymdb"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr",
+          args:         ["-dr", "com.apple.quarantine", "{{staged_path}}/gosymdb"],
+          must_succeed: false
     end
   end
 
